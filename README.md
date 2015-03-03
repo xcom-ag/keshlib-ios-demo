@@ -1,2 +1,2 @@
 # keshlib-ios-demo
-kesh Demo App for iOS
+kesh Demo App für iOS
