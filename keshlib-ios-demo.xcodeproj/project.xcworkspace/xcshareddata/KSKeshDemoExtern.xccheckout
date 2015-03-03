@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E994782A-3CC8-4578-A8AC-096C85D43AE0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KSKeshDemoExtern</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</key>
+		<string>git.willich.xcom.de:kesh-ios-demo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KSKeshDemoExtern.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git.willich.xcom.de:kesh-ios-demo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KSKeshDemoFull</string>
+		</dict>
+	</array>
+</dict>
+</plist>
