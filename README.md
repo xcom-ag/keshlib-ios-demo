@@ -2,11 +2,11 @@
 In den folgenden Abschnitten wird erläutert, wie das Framework in Ihr Projekt einzubinden ist und wie die grundlegenden Funktionen der Library verwendet werden können.
 
 ## Zugangsdaten und weiterführende Dokumentationen
-Sollten Sie einen Zugang zu unserem Demo-System und später für die Produktionsumgebung wünschen, [wenden Sie sich bitte an unseren Support.](http://kesh.de/händler#kontakt)
-Dort erhalten Sie die für den Zugang benötigten Zertifikate.
+Sollten Sie einen Zugang zu unserem Demo-System und später für die Produktionsumgebung wünschen, [wenden Sie sich bitte an unseren Support.](http://kesh.de/details-partnerintegration)
+Dort erhalten Sie die für den Zugang benötigten Zertifikate sowie weitere Dokumentationen.
 
 ## Installation
-1. Name des Frameworks: KSKeshLibrary.framework (im Demo-Projekt enthalten)
+1. Name des Frameworks: KSKeshLibraryExt.framework (im Demo-Projekt enthalten)
 2. Legen Sie das Framework per Drag & Drop in der "Frameworks"-Gruppe ihres Projektes in Xcode ab. Achten Sie beim Import darauf, dass der Haken unter "Copy items into destination group’s folder" gesetzt ist.
 3. Fügen Sie der Build-Phase "Link Binary With Libraries folgende Frameworks hinzu:
   * SystemConfiguration.framework
@@ -15,7 +15,7 @@ Dort erhalten Sie die für den Zugang benötigten Zertifikate.
   * Security.framework
   * Foundation.framework
 4. Um die Klassen des Frameworks nutzen zu können, können Sie
-  * Den Convenience-Header mittels #import <KSKeshLibraryExt/KSKeshLibrary> importieren.
+  * Den Convenience-Header mittels #import `<KSKeshLibraryExt/KSKeshLibrary>` importieren.
   * Den Header der jeweiligen Klasse einzeln importieren:
 ```objectivec
 #import <KSKeshLibraryExt/KSAccountBalanceNotificationData.h>
@@ -55,7 +55,7 @@ Dort erhalten Sie die für den Zugang benötigten Zertifikate.
 #import <KSKeshLibraryExt/KSUserDefaults.h>
 ```
 5. Fügen Sie "-ObjC" in den Build Settings unter "Other Linker Flags" ein.
-6. Fügen Sie ihr Zertifikat (.p12-Datei) dem Projekt hinzu
+6. Fügen Sie ihr Zertifikat (.p12-Datei) dem Projekt per Drag & Drop hinzu. Achten Sie auch darauf, dass die Target Membership korrekt gesetzt wurde.
 
 ##  Verbindungsaufbau & Abschicken von Requests
 Um die Funktionen der kesh-Schnittstelle nutzen und Anfragen erfolgreich an den Server schicken zu können, muss zunächst die Verbindung zum kesh-Server hergestellt werden.
@@ -68,7 +68,8 @@ SHostConfiguration *hostConfiguration = [KSHostConfiguration hostConfigurationWi
                                                                       clientCertChainPath:certChainPathP12 
                                                                           chainPassphrase:chainPassphrase];
 ```
-Die Zertifikate werden über den NSBundle-Pfad des Zertifikats mitgegeben. Um im Beispiel-Projekt eine Verbindung aufbauen zu können, müssen daher zwingend die Zertifikats-Dateien dem Projekt hinzugefügt werden (das Server-Zertifikat ist im Demo-Projekt bereits enthalten). Für die Zertifikatskette muss zudem das entsprechende Passwort ebenfalls übergeben werden.
+Die Zertifikate werden über den NSBundle-Pfad des Zertifikats mitgegeben. Um im Beispiel-Projekt eine Verbindung aufbauen zu können, müssen daher zwingend die Zertifikats-Dateien dem Projekt hinzugefügt werden. Für die Zertifikatskette muss zudem das entsprechende Passwort ebenfalls übergeben werden.
+Die Zertifikate und das zugehlrige Passwort erhalten Sie unter o. g. Ansprechstelle.
 
 Diese Konfiguration wird im Anschluss für den Verbindungsaufbau genutzt:
 ```objectivec
