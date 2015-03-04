@@ -5,9 +5,9 @@ In den folgenden Abschnitten wird erläutert, wie das Framework in Ihr Projekt e
 Sollten Sie einen Zugang zu unserem Demo-System und später für die Produktionsumgebung wünschen, [wenden Sie sich bitte an unseren Support.](http://kesh.de/details-partnerintegration)
 Dort erhalten Sie die für den Zugang benötigten Zertifikate.
 
-Die Schnittstellendokumentation finden Sie unter folgendem Link: [kesh - Schnittstellenbeschreibung für Fremd-Apps](kesh - Schnittstellenbeschreibung für Fremd-Apps.pdf)
+Die Schnittstellendokumentation finden Sie unter folgendem Link: [kesh - Schnittstellenbeschreibung für Fremd-Apps.pdf](https://github.com/xcom-ag/keshlib-ios-demo/blob/master/kesh%20-%20Schnittstellenbeschreibung%20für%20Fremd-Apps.pdf?raw=true)
 
-Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine Beschreibung hierzu in folgendem Dokument: [kesh - Einbindung der Registrierung Fremd-App](kesh - Einbindung der Registrierung Fremd-App.pdf)
+Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine Beschreibung hierzu in folgendem Dokument: [kesh - Einbindung der Registrierung Fremd-App.pdf](https://github.com/xcom-ag/keshlib-ios-demo/blob/master/kesh%20-%20Einbindung%20der%20Registrierung%20Fremd-App.pdf?raw=true)
 
 ## Installation
 1. Name des Frameworks: KSKeshLibraryExt.framework (im Demo-Projekt enthalten)
@@ -74,7 +74,7 @@ SHostConfiguration *hostConfiguration = [KSHostConfiguration hostConfigurationWi
                                                                           chainPassphrase:chainPassphrase];
 ```
 Die Zertifikate werden über den NSBundle-Pfad des Zertifikats mitgegeben. Um im Beispiel-Projekt eine Verbindung aufbauen zu können, müssen daher zwingend die Zertifikats-Dateien dem Projekt hinzugefügt werden. Für die Zertifikatskette muss zudem das entsprechende Passwort übergeben werden.
-Die Zertifikate und das zugehörige Passwort erhalten Sie [unter o. g. Ansprechstelle](#Zugangsdaten-und-weiterführende-Dokumentationen).
+Die Zertifikate und das zugehörige Passwort erhalten Sie [unter o. g. Ansprechstelle](#zugangsdaten-und-weiterführende-dokumentationen).
 
 Diese Konfiguration wird im Anschluss für den Verbindungsaufbau genutzt:
 ```objectivec
