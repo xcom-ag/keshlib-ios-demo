@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <KSKeshLibraryExt/KSAccountBalanceNotificationData.h>
 #import <KSKeshLibraryExt/KSAccountBalanceResponseData.h>
+#import <KSKeshLibraryExt/KSAuthorizationRequiredNotificationData.h>
 #import <KSKeshLibraryExt/KSAddress.h>
 #import <KSKeshLibraryExt/KSAmount.h>
 #import <KSKeshLibraryExt/KSBankAccount.h>

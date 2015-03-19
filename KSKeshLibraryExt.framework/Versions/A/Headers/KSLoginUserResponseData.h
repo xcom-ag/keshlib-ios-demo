@@ -10,6 +10,12 @@
 
 @class KSUserDefaults;
 
+typedef enum {
+    KSLoginUserErrorLoginDataWrong = 10,
+    KSLoginUserErrorLoginAccountClosed = 11,
+    KSLoginUserErrorLoginNeedsVersionUpdate = 12
+} KSLoginUserErrorCodes;
+
 @interface KSLoginUserResponseData : KSResponseData
 
 @property (copy, readonly) NSString *sessionToken;

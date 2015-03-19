@@ -20,5 +20,6 @@
 @property (nonatomic, getter = hasPhonebookSyncAccepted) BOOL phonebookSyncAccepted;
 @property (nonatomic, getter = hasMandateReference)     BOOL mandateReference;
 @property (nonatomic, getter = hasOneCtTransferred)     BOOL oneCtTransferred;
+@property (nonatomic)                                   BOOL mustConfirmNewPhoneNumber;
 
 @end

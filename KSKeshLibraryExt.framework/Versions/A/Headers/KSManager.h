@@ -63,25 +63,6 @@ typedef enum {
 } KSAvatarStyle;
 
 typedef enum {
-    KSSendMoneyErrorCode = 1,
-    KSSendMoneyNotLoggedInCode = 2,
-    KSSendMoneyNotEnoughMoneyCode = 4,
-    KSSendMoneyReceiverUnknownCode = 8
-} KSSendMoneyResponseHandlerErrorCode;
-
-typedef enum {
-    KSLoginError = 1,
-    KSLoginDeserializationFailed = 2,
-    KSLoginRequestFailed = 4,
-    KSLoginBadPassword = 8,
-    KSLoginUserUnknown = 16,
-    KSLoginAccountNotActivated = 32,
-    KSLoginNotLoggedIn = 64,
-    KSLoginNeedsVersionUpdate = 99,
-    KSLoginStatusUnknown = 128
-} KSLoginResponseHandlerErrorCodes;
-
-typedef enum {
     KSKeshTypePremium = 0,
     KSKeshTypeBasic = 1,
     KSKeshTypeStarter = 2,
@@ -111,6 +92,9 @@ extern NSString *const KSLoginResponseHandlerDomain;
 
 - (void)loginUserWithPhoneNumber:(NSString*)phoneNumber password:(NSString*)password onSuccess:(LoginUserSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)logoutUser:(LogoutUserSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
+- (void)sendToken:(NSString*)token onSuccess:(SendTokenSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
+- (void)authorizeRequest:(NSString *)token type:(NSString *)type onSuccess:(AuthorizationAnswerSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
+- (void)declineRequest:(NSString *)token type:(NSString *)type onSuccess:(AuthorizationAnswerSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)sendMoney:(KSAmount *)amount toAccountNumber:(NSString *)accountNumber description:(NSString*)description externalTransactionId:(NSString *)externalTransactionId externalPictureUrl:(NSString *)externalPictureUrl onSuccess:(SendMoneySuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)sendMoney:(KSAmount *)amount toPhoneNumber:(NSString *)phoneNumber description:(NSString*)description externalTransactionId:(NSString *)externalTransactionId externalPictureUrl:(NSString *)externalPictureUrl onSuccess:(SendMoneySuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)chargeAccountWithAmount:(KSAmount *)amount onSuccess:(ChargeAccountSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
@@ -155,8 +139,10 @@ extern NSString *const KSAvatarSizeLargeValue;
 extern NSString *const KSAvatarStyleRoundedValue;
 extern NSString *const KSAvatarStyleSquareValue;
 
+extern NSString *const KSAuthorizationRequiredNotification;
 extern NSString *const KSPaymentInfoNotification;
 extern NSString *const KSAccountBalanceNotification;
 
+extern NSString *const KSAuthorizationRequiredNotificationDataKey;
 extern NSString *const KSPaymentInfoNotificationDataKey;
 extern NSString *const KSAccountBalanceNotificationDataKey;
