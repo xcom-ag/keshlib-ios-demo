@@ -41,7 +41,7 @@
 			containerPortal = 01C989B418C4DF1900F9EBEE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 01C989BB18C4DF1900F9EBEE;
-			remoteInfo = KSKeshDemoExtern;
+			remoteInfo = keshlib-ios-demo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -239,7 +239,7 @@
 			dependencies = (
 			);
 			name = "keshlib-ios-demo";
-			productName = KSKeshDemoExtern;
+			productName = keshlib-ios-demo;
 			productReference = 01C989BC18C4DF1900F9EBEE /* keshlib-ios-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -257,7 +257,7 @@
 				01C989E318C4DF1A00F9EBEE /* PBXTargetDependency */,
 			);
 			name = "keshlib-ios-demoTests";
-			productName = KSKeshDemoExternTests;
+			productName = keshlib-ios-demoTests;
 			productReference = 01C989DD18C4DF1A00F9EBEE /* keshlib-ios-demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -483,14 +483,14 @@
 		01C989F218C4DF1A00F9EBEE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KSKeshDemoExtern.app/KSKeshDemoExtern";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/keshlib-ios-demo.app/keshlib-ios-demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KSKeshDemo/KSKeshDemoExtern-Prefix.pch";
+				GCC_PREFIX_HEADER = "KSKeshDemo/keshlib-ios-demo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -505,14 +505,14 @@
 		01C989F318C4DF1A00F9EBEE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KSKeshDemoExtern.app/KSKeshDemoExtern";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/keshlib-ios-demo.app/keshlib-ios-demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KSKeshDemo/KSKeshDemoExtern-Prefix.pch";
+				GCC_PREFIX_HEADER = "KSKeshDemo/keshlib-ios-demo-Prefix.pch";
 				INFOPLIST_FILE = "KSKeshDemoTests/keshlib-ios-demoTests-Info.plist";
 				PRODUCT_NAME = "keshlib-ios-demoTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
