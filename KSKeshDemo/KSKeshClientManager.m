@@ -80,6 +80,7 @@
 - (void)sendAmount:(KSAmount*)amount toAccountNumber:(NSString *)accountNumber description:(NSString*)description externalTransactionId:(NSString*)externalTransactionId pictureUrl:(NSString*)externalPictureUrl {
     [self.keshManager sendMoney:amount
                 toAccountNumber:accountNumber
+                     payPointId:nil
                     description:description
           externalTransactionId:externalTransactionId
              externalPictureUrl:externalPictureUrl

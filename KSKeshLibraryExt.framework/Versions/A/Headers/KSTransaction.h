@@ -61,6 +61,8 @@ typedef enum {
 @property(assign,nonatomic) KSTransactionStatus status;
 @property(assign,readonly) KSTransactionType type;
 @property(assign,readonly) KSTransactionDirection direction;
+@property(strong,readonly) NSNumber *payPointId;
+@property(copy,readonly) NSString *payPointName;
 
 -(id)initWithAccountNumber:(NSString*)accountNumber
      internalTransactionId:(NSNumber*)internalTransactionId
@@ -74,7 +76,9 @@ typedef enum {
             reversableFlag:(NSNumber*)reversableFlag
                     status:(KSTransactionStatus)status
                       type:(KSTransactionType)type
-                 direction:(KSTransactionDirection)direction;
+                 direction:(KSTransactionDirection)direction
+                payPointId:(NSNumber*)payPointId
+              payPointName:(NSString*)payPointName;
 - (BOOL)isReversable;
 
 

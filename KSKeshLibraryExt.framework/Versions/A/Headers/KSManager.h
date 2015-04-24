@@ -32,6 +32,8 @@
 
 typedef void (^LoginUserSuccessBlock) (KSLoginUserResponseData *data);
 typedef void (^LogoutUserSuccessBlock) ();
+typedef void (^SendTokenSuccessBlock) ();
+typedef void (^AuthorizationAnswerSuccessBlock) ();
 typedef void (^SendMoneySuccessBlock) (KSSendMoneyResponseData *data);
 typedef void (^AccountBalanceSuccessBlock) (KSAccountBalanceResponseData *data);
 typedef void (^ChargeAccountSuccessBlock) (KSChargeAccountResponseData *data);
@@ -95,7 +97,7 @@ extern NSString *const KSLoginResponseHandlerDomain;
 - (void)sendToken:(NSString*)token onSuccess:(SendTokenSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)authorizeRequest:(NSString *)token type:(NSString *)type onSuccess:(AuthorizationAnswerSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)declineRequest:(NSString *)token type:(NSString *)type onSuccess:(AuthorizationAnswerSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
-- (void)sendMoney:(KSAmount *)amount toAccountNumber:(NSString *)accountNumber description:(NSString*)description externalTransactionId:(NSString *)externalTransactionId externalPictureUrl:(NSString *)externalPictureUrl onSuccess:(SendMoneySuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
+- (void)sendMoney:(KSAmount *)amount toAccountNumber:(NSString *)accountNumber payPointId:(NSString*)payPointId description:(NSString*)description externalTransactionId:(NSString *)externalTransactionId externalPictureUrl:(NSString *)externalPictureUrl onSuccess:(SendMoneySuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)sendMoney:(KSAmount *)amount toPhoneNumber:(NSString *)phoneNumber description:(NSString*)description externalTransactionId:(NSString *)externalTransactionId externalPictureUrl:(NSString *)externalPictureUrl onSuccess:(SendMoneySuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)chargeAccountWithAmount:(KSAmount *)amount onSuccess:(ChargeAccountSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
 - (void)dischargeAccountWithAmount:(KSAmount *)amount onSuccess:(DischargeAccountSuccessBlock)successBlock onError:(ErrorBlock)errorBlock;
@@ -142,7 +144,9 @@ extern NSString *const KSAvatarStyleSquareValue;
 extern NSString *const KSAuthorizationRequiredNotification;
 extern NSString *const KSPaymentInfoNotification;
 extern NSString *const KSAccountBalanceNotification;
+extern NSString *const KSUserUpgradedNotificationDataKey;
 
 extern NSString *const KSAuthorizationRequiredNotificationDataKey;
 extern NSString *const KSPaymentInfoNotificationDataKey;
 extern NSString *const KSAccountBalanceNotificationDataKey;
+extern NSString *const KSUserUpgradedNotificationDataKey;
