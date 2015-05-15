@@ -16,7 +16,6 @@
 - (void)connectionEstablished;
 - (void)connectionLost:(NSError *)error;
 - (void)connectionClosed:(NSString *)message;
-
 - (void)needsAuthentication;
 
 @end

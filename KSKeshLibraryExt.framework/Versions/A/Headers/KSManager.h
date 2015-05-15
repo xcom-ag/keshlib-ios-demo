@@ -29,6 +29,7 @@
 @class KSFetchMandateResponseData;
 @class KSFetchMandatePreviewResponseData;
 @class KSCreateMandateResponseData;
+@class KSConfirmPaymentResponseData;
 
 typedef void (^LoginUserSuccessBlock) (KSLoginUserResponseData *data);
 typedef void (^LogoutUserSuccessBlock) ();
@@ -44,7 +45,7 @@ typedef void (^ChangePasswordSuccessBlock) ();
 typedef void (^ConfirmCentTransactionSuccessBlock) ();
 typedef void (^FetchUserDataSuccessBlock) (KSFetchUserDataResponseData *data);
 typedef void (^RequestPaymentSuccessBlock) (KSRequestPaymentResponseData *data);
-typedef void (^ConfirmPaymentSuccessBlock) ();
+typedef void (^ConfirmPaymentSuccessBlock) (KSConfirmPaymentResponseData *data);
 typedef void (^ListTransactionsSuccessBlock) (KSListTransactionsResponseData *data);
 typedef void (^ConfirmPhoneNumberSuccessBlock) ();
 typedef void (^FetchMandateSuccessBlock) (KSFetchMandateResponseData *data);
@@ -130,16 +131,9 @@ extern NSString *const KSLoginResponseHandlerDomain;
 extern NSString *const KSManagerError;
 
 typedef enum {
-    KSErrorLoginFailed,
     KSMerchantRequiredCode,
     KSRequestTimedOutErrorCode = 2715
 } KSManagerErrorCodes;
-
-extern NSString *const KSAvatarSizeThumbnailValue;
-extern NSString *const KSAvatarSizeMediumValue;
-extern NSString *const KSAvatarSizeLargeValue;
-extern NSString *const KSAvatarStyleRoundedValue;
-extern NSString *const KSAvatarStyleSquareValue;
 
 extern NSString *const KSAuthorizationRequiredNotification;
 extern NSString *const KSPaymentInfoNotification;

@@ -13,7 +13,8 @@
 typedef enum {
     KSLoginUserErrorLoginDataWrong = 10,
     KSLoginUserErrorLoginAccountClosed = 11,
-    KSLoginUserErrorLoginNeedsVersionUpdate = 12
+    KSLoginUserErrorLoginDataWrongWithMessage = 12,
+    KSLoginUserErrorLoginNeedsVersionUpdate = 15
 } KSLoginUserErrorCodes;
 
 @interface KSLoginUserResponseData : KSResponseData

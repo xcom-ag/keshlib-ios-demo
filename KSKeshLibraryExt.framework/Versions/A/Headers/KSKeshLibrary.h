@@ -15,6 +15,7 @@
 #import <KSKeshLibraryExt/KSBankAccount.h>
 #import <KSKeshLibraryExt/KSChargeAccountResponseData.h>
 #import <KSKeshLibraryExt/KSCommunicatorDelegate.h>
+#import <KSKeshLibraryExt/KSConfirmPaymentResponseData.h>
 #import <KSKeshLibraryExt/KSContactInfo.h>
 #import <KSKeshLibraryExt/KSCreateMandateResponseData.h>
 #import <KSKeshLibraryExt/KSCreditor.h>

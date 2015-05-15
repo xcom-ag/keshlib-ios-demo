@@ -184,7 +184,7 @@
 }
 
 - (void)confirmPayment:(NSNumber *)internalTransactionId {
-    [self.keshManager confirmPayment:internalTransactionId onSuccess:^{
+    [self.keshManager confirmPayment:internalTransactionId onSuccess:^(KSConfirmPaymentResponseData *data) {
         [self didConfirmPayment];
     } onError:^(NSError *error) {
         [self confirmPaymentFailedWithError:error];
@@ -192,7 +192,7 @@
 }
 
 - (void)declinePayment:(NSNumber *)internalTransactionId {
-    [self.keshManager declinePayment:internalTransactionId onSuccess:^{
+    [self.keshManager declinePayment:internalTransactionId onSuccess:^(KSConfirmPaymentResponseData *data) {
         [self didDeclinePayment];
     } onError:^(NSError *error) {
         [self declinePaymentFailedWithError:error];
