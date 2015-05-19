@@ -7,22 +7,18 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DBF48F43-0C5C-42E9-94CC-8948C4701A69</string>
 	<key>IDESourceControlProjectName</key>
-	<string>keshlib-ios-demo</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>9D12FF3620AE2E03E37C55777B5951AF957A8029</key>
 		<string>https://github.com/xcom-ag/keshlib-ios-demo.git</string>
-		<key>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</key>
-		<string>git.willich.xcom.de:kesh-ios-demo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>keshlib-ios-demo.xcodeproj</string>
+	<string>keshlib-ios-demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9D12FF3620AE2E03E37C55777B5951AF957A8029</key>
 		<string>../..</string>
-		<key>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</key>
-		<string>../../../KSKeshDemoFull</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/xcom-ag/keshlib-ios-demo.git</string>
@@ -39,14 +35,6 @@
 			<string>9D12FF3620AE2E03E37C55777B5951AF957A8029</string>
 			<key>IDESourceControlWCCName</key>
 			<string>keshlib-ios-demo</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B8F8EDF5FCAF31D97FD28D55472086AF34DF1A01</string>
-			<key>IDESourceControlWCCName</key>
-			<string>KSKeshDemoFull</string>
 		</dict>
 	</array>
 </dict>
