@@ -18,6 +18,7 @@ Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine B
   * CFNetwork.framework
   * Security.framework
   * Foundation.framework
+  * libicucore.dylib
 4. Fügen Sie "-ObjC" in den Build Settings unter "Other Linker Flags" ein.
 5. Fügen Sie ihr Zertifikat (.p12-Datei) dem Projekt per Drag & Drop hinzu. Achten Sie auch darauf, dass die Target Membership korrekt gesetzt wurde.
 6. Fügen Sie ebenso das Server-Zertifikat (.der-Datei) hinzu.
