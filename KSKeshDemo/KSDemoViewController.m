@@ -23,24 +23,34 @@
 @property (weak, nonatomic) IBOutlet UITextView  *textView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIToolbar *keyboardToolBar;
-@property (weak, nonatomic) IBOutlet UITextField *avatarIdField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UITextField *tokenTextField;
-@property (weak, nonatomic) IBOutlet UITextField *promoCodeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *disconnectButton;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (strong, nonatomic) NSMutableArray *imagePickerSources;
 @property (strong, nonatomic) NSMutableArray *saveAvatarButtonTitles;
+@property (strong, nonatomic) UIActionSheet *connectActionSheet;
 @property (strong, nonatomic) UIActionSheet *saveAvatarActionSheet;
+@property (strong, nonatomic) UIActionSheet *registrationActionSheet;
+@property (strong, nonatomic) UIActionSheet *upgradeActionSheet;
 @property (assign, nonatomic) BOOL pageControlBeingUsed;
 @property (strong, nonatomic) UIAlertView *loginAlertView;
 @property (strong, nonatomic) UIAlertView *sendMoneyAlertView;
+@property (strong, nonatomic) UIAlertView *sendMoneyEnterAmountAlertView;
 @property (strong, nonatomic) UIAlertView *changePasswordAlertView;
+@property (strong, nonatomic) UIAlertView *authorizeRequestAlertView;
+@property (strong, nonatomic) UIAlertView *declineRequestAlertView;
 @property (strong, nonatomic) UIAlertView *requestPaymentAlertView;
 @property (strong, nonatomic) UIAlertView *listTransactionsAlertView;
 @property (strong, nonatomic) UIAlertView *fetchAvatarAlertView;
 @property (strong, nonatomic) UIAlertView *confirmPhoneAlertView;
 @property (strong, nonatomic) UIAlertView *confirmPaymentAlertView;
 @property (strong, nonatomic) UIAlertView *declinePaymentAlertView;
+@property (strong, nonatomic) UIAlertView *sendTokenAlertView;
+@property (strong, nonatomic) UIAlertView *sendPromoCodeAlertView;
 @property (assign, nonatomic) BOOL autoScrollTextView;
 
 @end
@@ -77,6 +87,10 @@
         [self.imagePickerSources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypePhotoLibrary]];
         [self.saveAvatarButtonTitles addObject:@"Gallery"];
     }
+    
+    [self.contentView enableSubviews:NO ofType:[UIButton class]];
+    self.connectButton.enabled = YES;
+    self.registerButton.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,18 +170,31 @@
 
 - (void)didConnect {
     [self appendText:@"\nconnected"];
+    self.connectButton.enabled = NO;
+    self.loginButton.enabled = YES;
+    self.disconnectButton.enabled = YES;
 }
 
 - (void)connectionLost:(NSError *)error {
     [self appendText:[NSString stringWithFormat:@"\nconnection Lost: %@", [error localizedDescription]]];
+    [self.contentView enableSubviews:NO ofType:[UIButton class]];
+    self.connectButton.enabled = YES;
+    self.registerButton.enabled = YES;
 }
 
 - (void)connectionClosed:(NSString *)message {
     [self appendText:[NSString stringWithFormat:@"\nconnection Closed: %@", message]];
+    [self.contentView enableSubviews:NO ofType:[UIButton class]];
+    self.connectButton.enabled = YES;
+    self.registerButton.enabled = YES;
 }
 
 - (void)needsAuthentication {
     [self appendText:@"\nneeds authentication"];
+    [self.contentView enableSubviews:NO ofType:[UIButton class]];
+    self.loginButton.enabled = YES;
+    self.disconnectButton.enabled = YES;
+    self.registerButton.enabled = YES;
 }
 
 
@@ -186,8 +213,9 @@
 }
 
 - (void)didLogin:(KSUserDefaults *)userDefaults {
+    [self.contentView enableSubviews:YES];
+    self.loginButton.enabled = NO;
     NSString* pin = [NSString stringWithFormat:@"isInitialPin: %@",userDefaults.isInitialPin ? @"YES" : @"NO"];
-    NSString* sms = [NSString stringWithFormat:@"smsConfirmed: %@",userDefaults.smsConfirmed ? @"YES" : @"NO"];
     NSString* bank = [NSString stringWithFormat:@"bankAccountConfirmed: %@",userDefaults.bankAccountConfirmed ? @"YES" : @"NO"];
     NSString* agb = [NSString stringWithFormat:@"agbAccepted: %@",userDefaults.agbAccepted ? @"YES" : @"NO"];
     NSString* mandate = [NSString stringWithFormat:@"hasMandateReference: %@",userDefaults.hasMandateReference ? @"YES" : @"NO"];
@@ -203,7 +231,7 @@
         keshTypeString = @"Unknown";
     }
     NSString* keshType = [NSString stringWithFormat:@"keshType: %@", keshTypeString];
-    NSString* userDef = [NSString stringWithFormat:@"\n%@\n%@\n%@\n%@\n%@\n%@\n%@",pin,sms,bank,agb,mandate, oneCent, keshType];
+    NSString* userDef = [NSString stringWithFormat:@"\n%@\n%@\n%@\n%@\n%@\n%@",pin,bank,agb,mandate, oneCent, keshType];
 
     
     [self appendText:userDef];
@@ -223,6 +251,10 @@
 
 - (void)didLogout {
     [self appendText:@"\nLogout done..."];
+    [self.contentView enableSubviews:NO ofType:[UIButton class]];
+    self.loginButton.enabled = YES;
+    self.disconnectButton.enabled = YES;
+    self.registerButton.enabled = YES;
 }
 
 - (void)logoutFailedWithError:(NSError *)error {
@@ -408,6 +440,142 @@
 
 - (void)confirmCentTransactionFailedWithError:(NSError *)error {
     [self appendText:[NSString stringWithFormat:@"\nConfirming cent transaction failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - sendToken
+
+- (IBAction)sendToken:(id)sender {
+    self.sendTokenAlertView = [[UIAlertView alloc] initWithTitle:@"Send Token"
+                                                         message:nil
+                                                        delegate:self
+                                               cancelButtonTitle:@"Cancel"
+                                               otherButtonTitles:@"Send", nil];
+    self.sendTokenAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.sendTokenAlertView textFieldAtIndex:0].placeholder = @"Token";
+    [self.sendTokenAlertView show];
+}
+
+- (void)didSendToken {
+    [self appendText:@"\nToken sent"];
+}
+
+- (void)sendTokenFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nSending token failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - AuthorizeRequest
+
+- (IBAction)authorizeRequest:(id)sender {
+    self.authorizeRequestAlertView = [[UIAlertView alloc] initWithTitle:@"Authorize Request"
+                                                                message:nil
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"Authorize", nil];
+    self.authorizeRequestAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.authorizeRequestAlertView textFieldAtIndex:0].placeholder = @"Token";
+    [self.authorizeRequestAlertView show];
+}
+
+- (void)didAuthorizeRequest {
+    [self appendText:@"\nAuthorized request"];
+}
+
+- (void)authorizeRequestFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nAuthorizing request failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - DeclineAuthorizationRequest
+
+- (IBAction)declineAuthorizationRequest:(id)sender {
+    self.declineRequestAlertView = [[UIAlertView alloc] initWithTitle:@"Decline Request"
+                                                              message:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                                    otherButtonTitles:@"Decline", nil];
+    self.declineRequestAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.declineRequestAlertView textFieldAtIndex:0].placeholder = @"Token";
+    [self.declineRequestAlertView show];
+}
+
+- (void)didDeclineRequest {
+    [self appendText:@"\nDeclined request"];
+}
+
+- (void)declineRequestFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nDeclining request failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - sendPromoCode
+
+- (IBAction)sendPromoCode:(id)sender {
+    self.sendPromoCodeAlertView = [[UIAlertView alloc] initWithTitle:@"Send Promocode"
+                                                             message:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                                   otherButtonTitles:@"Send", nil];
+    self.sendPromoCodeAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.sendPromoCodeAlertView textFieldAtIndex:0].placeholder = @"Promocode";
+    [self.sendPromoCodeAlertView show];
+}
+
+- (void)didSendPromoCode:(NSString *)message {
+    [self appendText:[NSString stringWithFormat:@"\nPromocode message: %@", message]];
+}
+
+- (void)sendPromoCodeFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nSending promocode failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - listContacts
+
+- (IBAction)listContacts:(id)sender {
+    [self appendText:@"\nFetching contact list..."];
+    [self.keshClientManager listContacts];
+}
+
+- (void)didListContacts:(NSUInteger)count {
+    [self appendText:[NSString stringWithFormat:@"\nContacts: %lu", (unsigned long)count]];
+}
+
+- (void)listContactsFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nListing contacts failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - addContact
+
+- (IBAction)addContact:(id)sender {
+    [self appendText:@"\nAdding contact..."];
+    [self.keshClientManager addContact:@"015771487472"];
+}
+
+- (void)didAddContact:(NSString *)accountNumber {
+    [self appendText:[NSString stringWithFormat:@"\nAdded contact: %@", accountNumber]];
+}
+
+- (void)addContactFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nAdding contact failed: %@", [error localizedDescription]]];
+}
+
+
+#pragma mark - removeContact
+
+- (IBAction)removeContact:(id)sender {
+    [self appendText:@"\nRemoving contact..."];
+    [self.keshClientManager removeContact:@"015771487472"];
+}
+
+- (void)didRemoveContact {
+    [self appendText:@"\nRemoved contact"];
+}
+
+- (void)removeContactFailedWithError:(NSError *)error {
+    [self appendText:[NSString stringWithFormat:@"\nRemoving contact failed: %@", [error localizedDescription]]];
 }
 
 
@@ -667,19 +835,19 @@
             self.loginAlertView = nil;
         } else if ([alertView isEqual:self.sendMoneyAlertView]) {
             [self appendText:@"\nSending Money..."];
-            KSAmount *amount = [KSAmount amountWithValue:@(10) currency:@"EUR"];
+            KSAmount *amount = [KSAmount amountWithValue:@(1) currency:@"EUR"];
             NSString *phoneNumber = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             NSString *accountNumber = [[alertView textFieldAtIndex:1].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             if (phoneNumber.length > 0) {
                 [self.keshClientManager sendAmount:amount
                                      toPhoneNumber:phoneNumber
-                                       description:@"TestSendMoney"
+                                              memo:@"TestSendMoney"
                              externalTransactionId:@"Transaction123"
                                         pictureUrl:@"https://www.biw-bank.de/images/logo.png"];
             } else if (accountNumber.length > 0) {
                 [self.keshClientManager sendAmount:amount
                                    toAccountNumber:accountNumber
-                                       description:@"TestSendMoney"
+                                              memo:@"TestSendMoney"
                              externalTransactionId:@"Transaction123"
                                         pictureUrl:@"https://www.biw-bank.de/images/logo.png"];
             }
@@ -690,19 +858,29 @@
             NSString *passwordNew = [[alertView textFieldAtIndex:1].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             [self.keshClientManager changePassword:passwordOld newPassword:passwordNew];
             self.changePasswordAlertView = nil;
+        } else if ([alertView isEqual:self.authorizeRequestAlertView]) {
+            [self appendText:@"\nAuthorizing request..."];
+            NSString *token = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [self.keshClientManager authorizeRequest:token type:@"webshop_transfer_and_pay"];
+            self.authorizeRequestAlertView = nil;
+        } else if ([alertView isEqual:self.declineRequestAlertView]) {
+            [self appendText:@"\nDeclining request..."];
+            NSString *token = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [self.keshClientManager declineRequest:token type:@"webshop_transfer_and_pay"];
+            self.declineRequestAlertView = nil;
         } else if ([alertView isEqual:self.requestPaymentAlertView]) {
             [self appendText:@"\nRequesting payment..."];
-            KSAmount *amount = [KSAmount amountWithValue:@(10) currency:@"EUR"];
+            KSAmount *amount = [KSAmount amountWithValue:@(1) currency:@"EUR"];
             NSString *phoneNumber = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             NSString *accountNumber = [[alertView textFieldAtIndex:1].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             if (phoneNumber.length > 0) {
                 [self.keshClientManager requestPayment:amount
                                        fromPhoneNumber:phoneNumber
-                                           description:@"TestRequestMoney"];
+                                                  memo:@"TestRequestMoney"];
             } else if (accountNumber.length > 0) {
                 [self.keshClientManager requestPayment:amount
                                      fromAccountNumber:accountNumber
-                                           description:@"TestRequestMoney"];
+                                                  memo:@"TestRequestMoney"];
             }
             self.requestPaymentAlertView = nil;
         } else if ([alertView isEqual:self.listTransactionsAlertView]) {
@@ -740,6 +918,16 @@
             [self appendText:[NSString stringWithFormat:@"\nDeclining payment with id %@...", paymentId]];
             [self.keshClientManager declinePayment:paymentId];
             self.declinePaymentAlertView = nil;
+        } else if ([alertView isEqual:self.sendTokenAlertView]) {
+            [self appendText:@"\nSending token..."];
+            NSString *token = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [self.keshClientManager sendToken:token];
+            self.sendTokenAlertView = nil;
+        } else if ([alertView isEqual:self.sendPromoCodeAlertView]) {
+            [self appendText:@"\nSending promocode..."];
+            NSString *promoCode = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [self.keshClientManager sendPromoCode:promoCode];
+            self.sendPromoCodeAlertView = nil;
         }
     }
 }

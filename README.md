@@ -26,41 +26,55 @@ Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine B
 * Den Convenience-Header mittels #import `<KSKeshLibraryExt/KSKeshLibrary>` importieren.
 * Den Header der jeweiligen Klasse einzeln importieren:
 ```objectivec
-#import <KSKeshLibraryExt/KSAccountBalanceNotificationData.h>
-#import <KSKeshLibraryExt/KSAccountBalanceResponseData.h>
-#import <KSKeshLibraryExt/KSAddress.h>
-#import <KSKeshLibraryExt/KSAmount.h>
-#import <KSKeshLibraryExt/KSBankAccount.h>
-#import <KSKeshLibraryExt/KSChargeAccountResponseData.h>
-#import <KSKeshLibraryExt/KSCommunicatorDelegate.h>
-#import <KSKeshLibraryExt/KSContactInfo.h>
-#import <KSKeshLibraryExt/KSCreateMandateResponseData.h>
-#import <KSKeshLibraryExt/KSCreditor.h>
-#import <KSKeshLibraryExt/KSDataFormatter.h>
-#import <KSKeshLibraryExt/KSDeviceIdentifier.h>
-#import <KSKeshLibraryExt/KSDischargeAccountResponseData.h>
-#import <KSKeshLibraryExt/KSFetchAvatarResponseData.h>
-#import <KSKeshLibraryExt/KSFetchMandateResponseData.h>
-#import <KSKeshLibraryExt/KSFetchMandatePreviewResponseData.h>
-#import <KSKeshLibraryExt/KSFetchUserDataResponseData.h>
-#import <KSKeshLibraryExt/KSHostConfiguration.h>
-#import <KSKeshLibraryExt/KSImageData.h>
-#import <KSKeshLibraryExt/KSJobInfo.h>
-#import <KSKeshLibraryExt/KSLimitUsage.h>
-#import <KSKeshLibraryExt/KSListTransactionsResponseData.h>
-#import <KSKeshLibraryExt/KSLoginUserResponseData.h>
-#import <KSKeshLibraryExt/KSManager.h>
-#import <KSKeshLibraryExt/KSManagerDelegate.h>
-#import <KSKeshLibraryExt/KSPaymentInfoNotificationData.h>
-#import <KSKeshLibraryExt/KSPersonalData.h>
-#import <KSKeshLibraryExt/KSRequestPaymentResponseData.h>
-#import <KSKeshLibraryExt/KSResponseData.h>
-#import <KSKeshLibraryExt/KSRetryTimeKeeper.h>
-#import <KSKeshLibraryExt/KSSaveAvatarResponseData.h>
-#import <KSKeshLibraryExt/KSSendMoneyResponseData.h>
-#import <KSKeshLibraryExt/KSTransaction.h>
-#import <KSKeshLibraryExt/KSUserData.h>
-#import <KSKeshLibraryExt/KSUserDefaults.h>
+#import <KSKeshLibrary/KSAccountBalanceNotificationData.h>
+#import <KSKeshLibrary/KSAccountBalanceResponseData.h>
+#import <KSKeshLibrary/KSAddContactResponseData.h>
+#import <KSKeshLibrary/KSAddress.h>
+#import <KSKeshLibrary/KSAmount.h>
+#import <KSKeshLibrary/KSAuthorizationRequiredNotificationData.h>
+#import <KSKeshLibrary/KSBankAccount.h>
+#import <KSKeshLibrary/KSChangeGroupResponseData.h>
+#import <KSKeshLibrary/KSChargeAccountResponseData.h>
+#import <KSKeshLibrary/KSCommunicatorDelegate.h>
+#import <KSKeshLibrary/KSConfirmPaymentResponseData.h>
+#import <KSKeshLibrary/KSContact.h>
+#import <KSKeshLibrary/KSContactInfo.h>
+#import <KSKeshLibrary/KSCreateMandateResponseData.h>
+#import <KSKeshLibrary/KSCreditor.h>
+#import <KSKeshLibrary/KSDataFormatter.h>
+#import <KSKeshLibrary/KSDeviceIdentifier.h>
+#import <KSKeshLibrary/KSDischargeAccountResponseData.h>
+#import <KSKeshLibrary/KSFetchAvatarResponseData.h>
+#import <KSKeshLibrary/KSFetchMandatePreviewResponseData.h>
+#import <KSKeshLibrary/KSFetchMandateResponseData.h>
+#import <KSKeshLibrary/KSFetchUserDataResponseData.h>
+#import <KSKeshLibrary/KSGroup.h>
+#import <KSKeshLibrary/KSGroupMember.h>
+#import <KSKeshLibrary/KSHostConfiguration.h>
+#import <KSKeshLibrary/KSImageData.h>
+#import <KSKeshLibrary/KSInfoMessageNotificationData.h>
+#import <KSKeshLibrary/KSInitiator.h>
+#import <KSKeshLibrary/KSJobInfo.h>
+#import <KSKeshLibrary/KSLimitUsage.h>
+#import <KSKeshLibrary/KSListContactsResponseData.h>
+#import <KSKeshLibrary/KSListGroupsResponseData.h>
+#import <KSKeshLibrary/KSListTransactionsResponseData.h>
+#import <KSKeshLibrary/KSLoginUserResponseData.h>
+#import <KSKeshLibrary/KSManager.h>
+#import <KSKeshLibrary/KSManagerDelegate.h>
+#import <KSKeshLibrary/KSPaymentInfoNotificationData.h>
+#import <KSKeshLibrary/KSPersonalData.h>
+#import <KSKeshLibrary/KSPromoCodeResponseData.h>
+#import <KSKeshLibrary/KSRequestPaymentResponseData.h>
+#import <KSKeshLibrary/KSResponseData.h>
+#import <KSKeshLibrary/KSRetryTimeKeeper.h>
+#import <KSKeshLibrary/KSSaveAvatarResponseData.h>
+#import <KSKeshLibrary/KSSaveGroupResponseData.h>
+#import <KSKeshLibrary/KSSendMoneyResponseData.h>
+#import <KSKeshLibrary/KSTransaction.h>
+#import <KSKeshLibrary/KSUserData.h>
+#import <KSKeshLibrary/KSUserDefaults.h>
+#import <KSKeshLibrary/KSVisualization.h>
 ```
 
 ##  Verbindungsaufbau & Abschicken von Requests
@@ -80,7 +94,7 @@ Die Zertifikate und das zugehörige Passwort erhalten Sie [unter o. g. Ansprechs
 Diese Konfiguration wird im Anschluss für den Verbindungsaufbau genutzt:
 ```objectivec
 KSManager *mgr = [KSManager managerWithAppType:@"KeshDemo" 
-                                    appVersion:@"1.0.3" 
+                                    appVersion:@"1.0.5" 
                                  autoReconnect:NO];
 [mgr setDelegate:self];
 [mgr connectWithHostConfiguration:hostConfiguration];
@@ -133,4 +147,8 @@ Die an die jeweiligen Selektoren übergebenen Parameter vom Typ "NSNotification"
 | --- | --- | --- |
 | Kontostand | KSAccountBalanceNotification | KSAccountBalanceNotificationDataKey |
 | Zahlungsinformation | KSPaymentInfoNotification | KSPaymentInfoNotificationDataKey |
+| Autorisierung angefordert (Zahlung/Adressdaten) | KSAuthorizationRequiredNotification | KSAuthorizationRequiredNotificationDataKey |
+| Allgemeine Information | KSInfoMessageNotification | KSInfoMessageNotificationDataKey |
+| Nutzer Upgrade | KSUserUpgradedNotificationDataKey | KSUserUpgradedNotificationDataKey |
+
 

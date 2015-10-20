@@ -28,10 +28,12 @@
 		29139BCE19FFAD74009A145D /* KSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29139BC919FFAD74009A145D /* KSWebViewController.m */; };
 		29139BCF19FFAD74009A145D /* KSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29139BCA19FFAD74009A145D /* KSWebViewController.xib */; };
 		29139BD019FFAD74009A145D /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29139BCC19FFAD74009A145D /* MF_Base64Additions.m */; };
+		292613CD1BD62E4100101398 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 292613CC1BD62E4100101398 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		299C862B19EE93C4003316DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299C862A19EE93C4003316DE /* SystemConfiguration.framework */; };
-		299C868D19EEBC44003316DE /* KSDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299C868C19EEBC44003316DE /* KSDemoViewController.xib */; };
 		299C86A619F006F6003316DE /* KSWebRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299C86A419F006F6003316DE /* KSWebRegistrationViewController.m */; };
 		299C86A719F006F6003316DE /* KSWebRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299C86A519F006F6003316DE /* KSWebRegistrationViewController.xib */; };
+		29C5E8C81BD633B20067D608 /* KSDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5E8C71BD633B20067D608 /* KSDemoViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		29C5E8CB1BD6348B0067D608 /* UIView+DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */; settings = {ASSET_TAGS = (); }; };
 		29D41BCA1A38AB97004E0EA3 /* KSKeshLibraryExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D41BC91A38AB97004E0EA3 /* KSKeshLibraryExt.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +43,7 @@
 			containerPortal = 01C989B418C4DF1900F9EBEE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 01C989BB18C4DF1900F9EBEE;
-			remoteInfo = keshlib-ios-demo;
+			remoteInfo = "keshlib-ios-demo";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,12 +79,14 @@
 		29139BCA19FFAD74009A145D /* KSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KSWebViewController.xib; path = "Helper classes/KSWebViewController.xib"; sourceTree = "<group>"; };
 		29139BCB19FFAD74009A145D /* MF_Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = "Helper classes/MF_Base64Additions.h"; sourceTree = "<group>"; };
 		29139BCC19FFAD74009A145D /* MF_Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = "Helper classes/MF_Base64Additions.m"; sourceTree = "<group>"; };
-		29696B9D1A654BFB00598B6D /* Changelog.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Changelog.md; sourceTree = "<group>"; };
+		292613CC1BD62E4100101398 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		299C862A19EE93C4003316DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		299C868C19EEBC44003316DE /* KSDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSDemoViewController.xib; sourceTree = "<group>"; };
 		299C86A319F006F6003316DE /* KSWebRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWebRegistrationViewController.h; sourceTree = "<group>"; };
 		299C86A419F006F6003316DE /* KSWebRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWebRegistrationViewController.m; sourceTree = "<group>"; };
 		299C86A519F006F6003316DE /* KSWebRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSWebRegistrationViewController.xib; sourceTree = "<group>"; };
+		29C5E8C71BD633B20067D608 /* KSDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSDemoViewController.xib; sourceTree = "<group>"; };
+		29C5E8C91BD6348B0067D608 /* UIView+DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisableSubviews.h"; sourceTree = "<group>"; };
+		29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisableSubviews.m"; sourceTree = "<group>"; };
 		29D41BC91A38AB97004E0EA3 /* KSKeshLibraryExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KSKeshLibraryExt.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,7 +161,7 @@
 				01C989CF18C4DF1900F9EBEE /* KSAppDelegate.m */,
 				01C989D418C4DF1900F9EBEE /* KSDemoViewController.h */,
 				01C989D518C4DF1900F9EBEE /* KSDemoViewController.m */,
-				299C868C19EEBC44003316DE /* KSDemoViewController.xib */,
+				29C5E8C71BD633B20067D608 /* KSDemoViewController.xib */,
 				01C98A5A18C4E22400F9EBEE /* KSKeshClientManager.h */,
 				01C98A5B18C4E22500F9EBEE /* KSKeshClientManager.m */,
 				299C86A319F006F6003316DE /* KSWebRegistrationViewController.h */,
@@ -177,7 +181,6 @@
 				01C989C818C4DF1900F9EBEE /* InfoPlist.strings */,
 				01C989CB18C4DF1900F9EBEE /* main.m */,
 				01C989CD18C4DF1900F9EBEE /* keshlib-ios-demo-Prefix.pch */,
-				29696B9D1A654BFB00598B6D /* Changelog.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,6 +212,8 @@
 				29139BC819FFAD74009A145D /* KSWebViewController.h */,
 				29139BC919FFAD74009A145D /* KSWebViewController.m */,
 				29139BCA19FFAD74009A145D /* KSWebViewController.xib */,
+				29C5E8C91BD6348B0067D608 /* UIView+DisableSubviews.h */,
+				29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */,
 				29139BCB19FFAD74009A145D /* MF_Base64Additions.h */,
 				29139BCC19FFAD74009A145D /* MF_Base64Additions.m */,
 			);
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				01C989D718C4DF1900F9EBEE /* Images.xcassets */,
+				292613CC1BD62E4100101398 /* Launch Screen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -233,13 +239,14 @@
 				01C989B818C4DF1900F9EBEE /* Sources */,
 				01C989B918C4DF1900F9EBEE /* Frameworks */,
 				01C989BA18C4DF1900F9EBEE /* Resources */,
+				B9ABB05E82A8D330449F0B90 /* Find unused imports */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "keshlib-ios-demo";
-			productName = keshlib-ios-demo;
+			productName = "keshlib-ios-demo";
 			productReference = 01C989BC18C4DF1900F9EBEE /* keshlib-ios-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -257,7 +264,7 @@
 				01C989E318C4DF1A00F9EBEE /* PBXTargetDependency */,
 			);
 			name = "keshlib-ios-demoTests";
-			productName = keshlib-ios-demoTests;
+			productName = "keshlib-ios-demoTests";
 			productReference = 01C989DD18C4DF1A00F9EBEE /* keshlib-ios-demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -268,7 +275,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = KS;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "XCOM AG";
 				TargetAttributes = {
 					01C989DC18C4DF1A00F9EBEE = {
@@ -300,7 +307,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				299C868D19EEBC44003316DE /* KSDemoViewController.xib in Resources */,
+				292613CD1BD62E4100101398 /* Launch Screen.storyboard in Resources */,
+				29C5E8C81BD633B20067D608 /* KSDemoViewController.xib in Resources */,
 				01C989D818C4DF1900F9EBEE /* Images.xcassets in Resources */,
 				299C86A719F006F6003316DE /* KSWebRegistrationViewController.xib in Resources */,
 				01C989CA18C4DF1900F9EBEE /* InfoPlist.strings in Resources */,
@@ -318,6 +326,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B9ABB05E82A8D330449F0B90 /* Find unused imports */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Find unused imports";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"/Users/alexandernoske/Library/Application Support/Developer/Shared/Xcode/Plug-ins/xcfui.xcplugin/Contents/Resources/fui_script.sh\" \"/Users/alexandernoske/Documents/Xcode/keshlib-ios-demo\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		01C989B818C4DF1900F9EBEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,6 +353,7 @@
 				01C989D618C4DF1900F9EBEE /* KSDemoViewController.m in Sources */,
 				01C989CC18C4DF1900F9EBEE /* main.m in Sources */,
 				01C98A5C18C4E22500F9EBEE /* KSKeshClientManager.m in Sources */,
+				29C5E8CB1BD6348B0067D608 /* UIView+DisableSubviews.m in Sources */,
 				29139BD019FFAD74009A145D /* MF_Base64Additions.m in Sources */,
 				01C989D018C4DF1900F9EBEE /* KSAppDelegate.m in Sources */,
 				29139BCD19FFAD74009A145D /* KSHelper.m in Sources */,
@@ -390,6 +416,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -454,8 +481,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KSKeshDemo/keshlib-ios-demo-Prefix.pch";
 				INFOPLIST_FILE = "KSKeshDemo/keshlib-ios-demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.xcom.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "keshlib-ios-demo";
 				WRAPPER_EXTENSION = app;
 			};
@@ -473,8 +501,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KSKeshDemo/keshlib-ios-demo-Prefix.pch";
 				INFOPLIST_FILE = "KSKeshDemo/keshlib-ios-demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.xcom.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "keshlib-ios-demo";
 				WRAPPER_EXTENSION = app;
 			};
@@ -496,6 +525,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "KSKeshDemoTests/keshlib-ios-demoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.xcom.app.2.0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "keshlib-ios-demoTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -514,6 +544,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KSKeshDemo/keshlib-ios-demo-Prefix.pch";
 				INFOPLIST_FILE = "KSKeshDemoTests/keshlib-ios-demoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.xcom.app.2.0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "keshlib-ios-demoTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

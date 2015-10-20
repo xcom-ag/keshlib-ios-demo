@@ -64,10 +64,10 @@
     }];
 }
 
-- (void)sendAmount:(KSAmount*)amount toPhoneNumber:(NSString *)phoneNumber description:(NSString*)description externalTransactionId:(NSString*)externalTransactionId pictureUrl:(NSString*)externalPictureUrl {
+- (void)sendAmount:(KSAmount*)amount toPhoneNumber:(NSString *)phoneNumber memo:(NSString*)memo externalTransactionId:(NSString*)externalTransactionId pictureUrl:(NSString*)externalPictureUrl {
     [self.keshManager sendMoney:amount
                   toPhoneNumber:phoneNumber
-                    description:description
+                           memo:memo
           externalTransactionId:externalTransactionId
              externalPictureUrl:externalPictureUrl
                       onSuccess:^(KSSendMoneyResponseData *data) {
@@ -77,11 +77,10 @@
                       }];
 }
 
-- (void)sendAmount:(KSAmount*)amount toAccountNumber:(NSString *)accountNumber description:(NSString*)description externalTransactionId:(NSString*)externalTransactionId pictureUrl:(NSString*)externalPictureUrl {
+- (void)sendAmount:(KSAmount*)amount toAccountNumber:(NSString *)accountNumber memo:(NSString*)memo externalTransactionId:(NSString*)externalTransactionId pictureUrl:(NSString*)externalPictureUrl {
     [self.keshManager sendMoney:amount
                 toAccountNumber:accountNumber
-                     payPointId:nil
-                    description:description
+                           memo:memo
           externalTransactionId:externalTransactionId
              externalPictureUrl:externalPictureUrl
                       onSuccess:^(KSSendMoneyResponseData *data) {
@@ -159,6 +158,63 @@
     }];
 }
 
+- (void)sendToken:(NSString*)token {
+    [self.keshManager sendToken:token onSuccess:^{
+        [self didSendToken];
+    } onError:^(NSError *error) {
+        [self sendTokenFailedWithError:error];
+    }];
+}
+
+- (void)authorizeRequest:(NSString *)token type:(NSString *)type {
+    [self.keshManager authorizeRequest:token type:type onSuccess:^{
+        [self didAuthorizeRequest];
+    } onError:^(NSError *error) {
+        [self authorizeRequestFailedWithError:error];
+    }];
+}
+
+- (void)declineRequest:(NSString *)token type:(NSString *)type {
+    [self.keshManager declineRequest:token type:type onSuccess:^{
+        [self didDeclineRequest];
+    } onError:^(NSError *error) {
+        [self declineRequestFailedWithError:error];
+    }];
+}
+
+- (void)sendPromoCode:(NSString *)promoCode {
+    [self.keshManager sendPromoCode:promoCode onSuccess:^(KSPromoCodeResponseData *data) {
+        [self didSendPromoCode:data.message];
+    } onError:^(NSError *error) {
+        [self sendPromoCodeFailedWithError:error];
+    }];
+}
+
+- (void)listContacts {
+    [self.keshManager listContacts:^(KSListContactsResponseData *data) {
+        [self didListContacts:data.contacts.count];
+    } onError:^(NSError *error) {
+        [self listContactsFailedWithError:error];
+    }];
+}
+
+- (void)addContact:(NSString *)egdt_nr {
+    __weak KSKeshClientManager *wself = self;
+    [self.keshManager addContact:egdt_nr onSuccess:^(KSAddContactResponseData *data) {
+        [wself didAddContact:data.contact.accountNumber];
+    } onError:^(NSError *error) {
+        [wself addContactFailedWithError:error];
+    }];
+}
+
+- (void)removeContact:(NSString *)egdt_nr {
+    [self.keshManager removeContact:egdt_nr onSuccess:^{
+        [self didRemoveContact];
+    } onError:^(NSError *error) {
+        [self removeContactFailedWithError:error];
+    }];
+}
+
 - (void)fetchUserData {
     [self.keshManager fetchUserData:^(KSFetchUserDataResponseData *data) {
         [self didFetchUserData:data.userData.accountNumber];
@@ -167,16 +223,16 @@
     }];
 }
 
-- (void)requestPayment:(KSAmount *)amount fromAccountNumber:(NSString *)accountNumber description:(NSString*)description {
-    [self.keshManager requestPayment:amount fromAccountNumber:accountNumber description:description onSuccess:^(KSRequestPaymentResponseData *data) {
+- (void)requestPayment:(KSAmount *)amount fromAccountNumber:(NSString *)accountNumber memo:(NSString*)memo {
+    [self.keshManager requestPayment:amount fromAccountNumber:accountNumber memo:memo onSuccess:^(KSRequestPaymentResponseData *data) {
         [self didRequestPayment:data.transaction.internalTransactionId];
     } onError:^(NSError *error) {
         [self requestPaymentFailedWithError:error];
     }];
 }
 
-- (void)requestPayment:(KSAmount *)amount fromPhoneNumber:(NSString *)phoneNumber description:(NSString*)description {
-    [self.keshManager requestPayment:amount fromPhoneNumber:phoneNumber description:description onSuccess:^(KSRequestPaymentResponseData *data) {
+- (void)requestPayment:(KSAmount *)amount fromPhoneNumber:(NSString *)phoneNumber memo:(NSString*)memo {
+    [self.keshManager requestPayment:amount fromPhoneNumber:phoneNumber memo:memo onSuccess:^(KSRequestPaymentResponseData *data) {
         [self didRequestPayment:data.transaction.internalTransactionId];
     } onError:^(NSError *error) {
         [self requestPaymentFailedWithError:error];
@@ -249,11 +305,11 @@
 
 - (NSString *)registrationUrl {
     // Add your "partner" parameter to URL for external partners, example: https://demo1.kesh.de:444/kesh_mobile_oke/registrierung?partner=biw
-    return @"https://demo1.kesh.de:444/kesh_mobile_oke/registrierung";
+    return @"https://demo1.kesh.de:444/kesh_mobile_oke/registrierung?partner=xxx";
 }
 
 - (NSString *)upgradeUrl {
-    return [NSString stringWithFormat:@"%@?sessionId=%@&target=upgrade", [self registrationUrl], [self.keshManager authenticationToken]];
+    return [NSString stringWithFormat:@"%@&sessionId=%@&target=upgrade", [self registrationUrl], [self.keshManager authenticationToken]];
 }
 
 
@@ -261,7 +317,7 @@
 
 - (void)connectionEstablished {
     self.isConnected = YES;
-    [self.uiDelegate didConnect];
+        [self.uiDelegate didConnect];
 }
 
 - (void)connectionLost:(NSError *)error {
@@ -394,6 +450,77 @@
 }
 
 
+#pragma mark - SendToken feedback
+
+- (void)didSendToken {
+    [self.uiDelegate didSendToken];
+}
+
+- (void)sendTokenFailedWithError:(NSError *)error {
+    [self.uiDelegate sendTokenFailedWithError:error];
+}
+
+
+#pragma mark - AuthorizeRequest feedback
+
+- (void)didAuthorizeRequest {
+    [self.uiDelegate didAuthorizeRequest];
+}
+
+- (void)authorizeRequestFailedWithError:(NSError *)error {
+    [self.uiDelegate authorizeRequestFailedWithError:error];
+}
+
+- (void)didDeclineRequest {
+    [self.uiDelegate didDeclineRequest];
+}
+
+- (void)declineRequestFailedWithError:(NSError *)error {
+    [self.uiDelegate declineRequestFailedWithError:error];
+}
+
+
+#pragma mark - PromoCode feedback
+
+- (void)didSendPromoCode:(NSString *)message {
+    [self.uiDelegate didSendPromoCode:message];
+}
+
+- (void)sendPromoCodeFailedWithError:(NSError *)error {
+    [self.uiDelegate sendPromoCodeFailedWithError:error];
+}
+
+
+#pragma mark - ListContacts feedback
+
+- (void)didListContacts:(NSUInteger)count {
+    [self.uiDelegate didListContacts:count];
+}
+
+- (void)listContactsFailedWithError:(NSError *)error {
+    [self.uiDelegate listContactsFailedWithError:error];
+}
+
+
+#pragma mark - ContactHandling feedback
+
+- (void)didAddContact:(NSString *)accountNumber {
+    [self.uiDelegate didAddContact:accountNumber];
+}
+
+- (void)addContactFailedWithError:(NSError *)error {
+    [self.uiDelegate addContactFailedWithError:error];
+}
+
+- (void)didRemoveContact {
+    [self.uiDelegate didRemoveContact];
+}
+
+- (void)removeContactFailedWithError:(NSError *)error {
+    [self.uiDelegate removeContactFailedWithError:error];
+}
+
+
 #pragma mark - UserData feedback
 
 - (void)didFetchUserData:(NSString *)accountNumber {
@@ -508,6 +635,5 @@
     KSPaymentInfoNotificationData *paymentInfoNotification = [notification.userInfo objectForKey:KSPaymentInfoNotificationDataKey];
     [self.uiDelegate paymentInfoNotificationReceived:paymentInfoNotification];
 }
-
 
 @end

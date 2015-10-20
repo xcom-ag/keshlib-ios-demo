@@ -13,7 +13,6 @@
 
 @property (nonatomic, getter = isInitialPin)            BOOL initialPin;
 @property (nonatomic)                                   KSKeshType keshType;
-@property (nonatomic, getter = isSmsConfirmed)          BOOL smsConfirmed;
 @property (nonatomic, getter = isBankAccountConfirmed)  BOOL bankAccountConfirmed;
 @property (nonatomic, getter = hasAcceptedAgb)          BOOL agbAccepted;
 @property (nonatomic)                                   int behaviorLevel;

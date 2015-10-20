@@ -27,7 +27,7 @@ typedef enum LimitType {
 @property(copy,readonly) KSAmount *maxAmount;
 
 - (id)initWithLimitType:(NSString*)limitType currentAmount:(KSAmount *)currentAmount maxAmount:(KSAmount *)maxAmount;
-- (float)percentage;
+- (double)percentage;
 - (NSString *)actualString;
 - (NSString *)maximumString;
 - (NSString*)remainingString;

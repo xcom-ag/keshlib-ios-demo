@@ -80,6 +80,7 @@ typedef enum {
                  direction:(KSTransactionDirection)direction
                 payPointId:(NSNumber*)payPointId
               payPointName:(NSString*)payPointName;
+- (void)updateWithTransaction:(KSTransaction*)transaction;
 - (BOOL)isReversable;
 
 

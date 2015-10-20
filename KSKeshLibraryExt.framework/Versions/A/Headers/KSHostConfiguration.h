@@ -18,6 +18,18 @@
 @property (copy) NSString *clientCertChainPath;
 @property (copy) NSString *chainPassphrase;
 
+/**
+ *  Returns a KSHostConfiguration to use when establishing a connection with KSManager's connectWithHostConfiguration method.
+ *
+ *  @param hostAddress         The server's host address
+ *  @param port                The server port to use
+ *  @param securedWithFlag     YES if the connection is made over SSL
+ *  @param serverCertPath      The local path to the server's leaf certificate
+ *  @param clientCertChainPath The local path to the client certificate chain
+ *  @param chainPassphrase     The passPhrase used to secure the client certificate chain
+ *
+ *  @return KSHostConfiguration
+ */
 + (id)hostConfigurationWithAddress:(NSString*)hostAddress port:(int)port securedWithSSL:(BOOL)securedWithFlag serverCertPath:(NSString *)serverCertPath clientCertChainPath:(NSString *)clientCertChainPath chainPassphrase:(NSString *)chainPassphrase;
 
 @end

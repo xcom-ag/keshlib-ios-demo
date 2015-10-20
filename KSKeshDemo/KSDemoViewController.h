@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KSRegistrationDelegate.h"
+#import "UIView+DisableSubviews.h"
 
 @class KSUserDefaults;
 @class KSAmount;
@@ -55,6 +56,25 @@
 
 - (void)didConfirmCentTransaction;
 - (void)confirmCentTransactionFailedWithError:(NSError *)error;
+
+- (void)didSendToken;
+- (void)sendTokenFailedWithError:(NSError *)error;
+
+- (void)didAuthorizeRequest;
+- (void)authorizeRequestFailedWithError:(NSError *)error;
+- (void)didDeclineRequest;
+- (void)declineRequestFailedWithError:(NSError *)error;
+
+- (void)didSendPromoCode:(NSString *)message;
+- (void)sendPromoCodeFailedWithError:(NSError *)error;
+
+- (void)didListContacts:(NSUInteger)count;
+- (void)listContactsFailedWithError:(NSError *)error;
+
+- (void)didAddContact:(NSString *)accountNumber;
+- (void)addContactFailedWithError:(NSError *)error;
+- (void)didRemoveContact;
+- (void)removeContactFailedWithError:(NSError *)error;
 
 - (void)didFetchUserData:(NSString *)accountNumber;
 - (void)fetchUserDataFailedWithError:(NSError *)error;

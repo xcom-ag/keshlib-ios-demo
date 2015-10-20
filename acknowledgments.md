@@ -3,7 +3,7 @@ The keshlib for iOS uses code from the following libraries
 
 * socket.io-objc by Philipp Kyeck https://github.com/pkyeck/socket.IO-objc/
 * SocketRocket by Square Inc. https://github.com/square/SocketRocket/
-* Reachibility by Tony Million https://github.com/tonymillion/Reachability/
+* Reachability by Tony Million https://github.com/tonymillion/Reachability/
 
 In addition, the keshlib-ios-demo uses code from the following library
 
