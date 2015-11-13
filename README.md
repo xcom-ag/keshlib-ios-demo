@@ -23,7 +23,7 @@ Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine B
 5. Fügen Sie ihr Zertifikat (.p12-Datei) dem Projekt per Drag & Drop hinzu. Achten Sie auch darauf, dass die Target Membership korrekt gesetzt wurde.
 6. Fügen Sie ebenso das Server-Zertifikat (.der-Datei) hinzu.
 7. Um die Klassen des Frameworks nutzen zu können, können Sie
-* Den Convenience-Header mittels #import `<KSKeshLibraryExt/KSKeshLibrary>` importieren.
+* Den Convenience-Header mittels #import `<KSKeshLibraryExt/KSKeshLibrary.h>` importieren.
 * Den Header der jeweiligen Klasse einzeln importieren:
 ```objectivec
 #import <KSKeshLibrary/KSAccountBalanceNotificationData.h>
@@ -81,7 +81,15 @@ Sollten Sie auch die Registrierung für kesh einbinden wollen, finden Sie eine B
 Um die Funktionen der kesh-Schnittstelle nutzen und Anfragen erfolgreich an den Server schicken zu können, muss zunächst die Verbindung zum kesh-Server hergestellt werden.
 Hierzu wird zunächst eine KSHostConfiguration für den entsprechenden Server (Produktion/Demo) erstellt. Beispiel:
 ```objectivec
-SHostConfiguration *hostConfiguration = [KSHostConfiguration hostConfigurationWithAddress:hostAdress 
+NSString *hostAddress = @"demo1.kesh.de";
+int port = 743;
+BOOL securedWithSSL = YES;
+// demo1.kesh.de is only displayed here as an example. Actual certificate name may vary.
+NSString *serverCertPathDER = [[NSBundle mainBundle] pathForResource:@"demo1.kesh.de" ofType:DER_TYPE];
+// ios.demo1.client is only displayed here as an example. Actual certificate name may vary.
+NSString *certChainPathP12 = [[NSBundle mainBundle] pathForResource:@"ios.demo1.client" ofType:P12_TYPE];
+NSString *chainPassphrase = @"chain pass phrase here";
+KSHostConfiguration *hostConfiguration = [KSHostConfiguration hostConfigurationWithAddress:hostAddress 
                                                                                      port:port 
                                                                            securedWithSSL:securedWithSSL 
                                                                            serverCertPath:serverCertPathDER
