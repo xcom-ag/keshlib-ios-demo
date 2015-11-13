@@ -28,13 +28,13 @@
 		29139BCE19FFAD74009A145D /* KSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29139BC919FFAD74009A145D /* KSWebViewController.m */; };
 		29139BCF19FFAD74009A145D /* KSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29139BCA19FFAD74009A145D /* KSWebViewController.xib */; };
 		29139BD019FFAD74009A145D /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29139BCC19FFAD74009A145D /* MF_Base64Additions.m */; };
-		292613CD1BD62E4100101398 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 292613CC1BD62E4100101398 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		299C862B19EE93C4003316DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299C862A19EE93C4003316DE /* SystemConfiguration.framework */; };
 		299C86A619F006F6003316DE /* KSWebRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299C86A419F006F6003316DE /* KSWebRegistrationViewController.m */; };
 		299C86A719F006F6003316DE /* KSWebRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299C86A519F006F6003316DE /* KSWebRegistrationViewController.xib */; };
-		29C5E8C81BD633B20067D608 /* KSDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5E8C71BD633B20067D608 /* KSDemoViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		29C5E8CB1BD6348B0067D608 /* UIView+DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */; settings = {ASSET_TAGS = (); }; };
+		29C5E8C81BD633B20067D608 /* KSDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5E8C71BD633B20067D608 /* KSDemoViewController.xib */; };
+		29C5E8CB1BD6348B0067D608 /* UIView+DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */; };
 		29D41BCA1A38AB97004E0EA3 /* KSKeshLibraryExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D41BC91A38AB97004E0EA3 /* KSKeshLibraryExt.framework */; };
+		29E361FF1BF5DB8C005359F8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E361FE1BF5DB8C005359F8 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,6 @@
 		29139BCA19FFAD74009A145D /* KSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KSWebViewController.xib; path = "Helper classes/KSWebViewController.xib"; sourceTree = "<group>"; };
 		29139BCB19FFAD74009A145D /* MF_Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = "Helper classes/MF_Base64Additions.h"; sourceTree = "<group>"; };
 		29139BCC19FFAD74009A145D /* MF_Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = "Helper classes/MF_Base64Additions.m"; sourceTree = "<group>"; };
-		292613CC1BD62E4100101398 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		299C862A19EE93C4003316DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		299C86A319F006F6003316DE /* KSWebRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWebRegistrationViewController.h; sourceTree = "<group>"; };
 		299C86A419F006F6003316DE /* KSWebRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWebRegistrationViewController.m; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		29C5E8C91BD6348B0067D608 /* UIView+DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisableSubviews.h"; sourceTree = "<group>"; };
 		29C5E8CA1BD6348B0067D608 /* UIView+DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisableSubviews.m"; sourceTree = "<group>"; };
 		29D41BC91A38AB97004E0EA3 /* KSKeshLibraryExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KSKeshLibraryExt.framework; sourceTree = "<group>"; };
+		29E361FE1BF5DB8C005359F8 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				01C989D718C4DF1900F9EBEE /* Images.xcassets */,
-				292613CC1BD62E4100101398 /* Launch Screen.storyboard */,
+				29E361FE1BF5DB8C005359F8 /* LaunchScreen.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -239,7 +239,6 @@
 				01C989B818C4DF1900F9EBEE /* Sources */,
 				01C989B918C4DF1900F9EBEE /* Frameworks */,
 				01C989BA18C4DF1900F9EBEE /* Resources */,
-				B9ABB05E82A8D330449F0B90 /* Find unused imports */,
 			);
 			buildRules = (
 			);
@@ -307,9 +306,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292613CD1BD62E4100101398 /* Launch Screen.storyboard in Resources */,
 				29C5E8C81BD633B20067D608 /* KSDemoViewController.xib in Resources */,
 				01C989D818C4DF1900F9EBEE /* Images.xcassets in Resources */,
+				29E361FF1BF5DB8C005359F8 /* LaunchScreen.xib in Resources */,
 				299C86A719F006F6003316DE /* KSWebRegistrationViewController.xib in Resources */,
 				01C989CA18C4DF1900F9EBEE /* InfoPlist.strings in Resources */,
 				29139BCF19FFAD74009A145D /* KSWebViewController.xib in Resources */,
